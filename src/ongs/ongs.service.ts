@@ -1,5 +1,4 @@
 import { Injectable, Get, Post } from '@nestjs/common';
-import { Ongs } from './ongs';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Ong } from './ongs.entity';
 import { Repository } from 'typeorm';
@@ -13,13 +12,12 @@ export class OngsService {
     ) {}
 
 
-    @Get()
     list(): Promise<Ong[]>{
         return this.ongsRepository.find();
     }
 
-    @Post()
-    add(ongDto: OngDto) {
+    add(ongDto: OngDto): OngDto {
         this.ongsRepository.save(ongDto);
+        return ongDto;
     }
 }

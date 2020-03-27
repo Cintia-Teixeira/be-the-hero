@@ -13,7 +13,8 @@ export class OngsController {
     }
 
     @Post()
-    add(@Body() ongDto: OngDto){
-        return this.ongService.add(ongDto);
+    add(@Body() ongDto: OngDto): OngDto {
+        this.ongService.add(ongDto);
+        return ongDto;
     }
 }
