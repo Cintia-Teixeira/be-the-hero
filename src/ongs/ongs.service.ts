@@ -1,4 +1,4 @@
-import { Injectable, Get, Post } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Ong } from './ongs.entity';
 import { Repository } from 'typeorm';
@@ -8,7 +8,7 @@ import { OngDto } from './ong.dto';
 export class OngsService {
     constructor (
         @InjectRepository(Ong)
-        private ongsRepository: Repository<Ong>,
+        private ongsRepository: Repository<Ong>
     ) {}
 
 
