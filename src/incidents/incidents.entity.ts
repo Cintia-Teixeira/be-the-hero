@@ -1,4 +1,5 @@
-import { Entity, PrimaryColumn, Column } from "typeorm";
+import { Entity, PrimaryColumn, Column, ManyToOne } from "typeorm";
+import { Ong } from "src/ongs/ongs.entity";
 
 @Entity()
 export class Incident {
@@ -11,5 +12,8 @@ export class Incident {
 
     @Column()
     value: number;
+
+    @ManyToOne(type => Ong, ong => ong.id)
+    ong: Ong;
 
 }

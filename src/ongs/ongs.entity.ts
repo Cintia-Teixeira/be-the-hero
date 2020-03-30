@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { Incident } from "src/incidents/incidents.entity";
 
 @Entity()
 export class Ong {
@@ -20,5 +21,8 @@ export class Ong {
 
     @Column()
     uf: string;
+
+    @OneToMany(type => Incident, incident => incident.ong)
+    incidents: Incident[];
 
 }

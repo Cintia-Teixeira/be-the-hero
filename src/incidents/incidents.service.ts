@@ -3,6 +3,7 @@ import { IncidentDto } from "./incident.dto";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import { Incident } from "./incidents.entity";
+import { Ong } from "src/ongs/ongs.entity";
 
 @Injectable()
 export class IncidentsService {
@@ -22,6 +23,10 @@ export class IncidentsService {
 
     deleteIncident(title: string) {
         return this.incidentRepository.delete(title);
+    }
+
+    findByOng(id: number) {
+        return this.incidentRepository.find({where: [{ ong: id}]});
     }
 
 }

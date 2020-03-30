@@ -2,6 +2,7 @@ import { Controller, Get, Post, Delete, Body, Param } from "@nestjs/common";
 import { IncidentsService } from "./incidents.service";
 import { Incident } from "./incidents.entity";
 import { IncidentDto } from "./incident.dto";
+import { Ong } from "src/ongs/ongs.entity";
 
 @Controller('incidents')
 export class IncidentsController {
@@ -20,5 +21,10 @@ export class IncidentsController {
     @Delete(':title')
     delete(@Param('title') title: string) {
         this.incidentsService.deleteIncident(title);
+    }
+
+    @Get(':ong_id')
+    findByOng(@Param('ong_id') id: number) {
+        return this.incidentsService.findByOng(id);
     }
 }
