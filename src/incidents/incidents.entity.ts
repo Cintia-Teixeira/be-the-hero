@@ -13,7 +13,7 @@ export class Incident {
     @Column()
     value: number;
 
-    @ManyToOne(type => Ong, ong => ong.id)
+    @ManyToOne(type => Ong, ong => ong.id, {nullable: false, onDelete: "CASCADE"})
     ong: Ong;
 
 }

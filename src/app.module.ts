@@ -6,9 +6,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Ong } from './ongs/ongs.entity';
 import { IncidentsModule } from './incidents/incidents.module';
 import { Incident } from './incidents/incidents.entity';
+import { AuthModule } from './authentication/auth.module';
 
 @Module({
-  imports: [OngsModule, IncidentsModule,
+  imports: [OngsModule, IncidentsModule, AuthModule,
   TypeOrmModule.forRoot({
     type: 'sqlite',
     database: 'ongs.db',

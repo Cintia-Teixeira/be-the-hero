@@ -7,6 +7,7 @@ import { Ong } from './ongs.entity';
 @Module({
     imports: [TypeOrmModule.forFeature([Ong])],
     controllers: [OngsController],
-    providers: [OngsService] 
+    providers: [OngsService],
+    exports: [OngsService]
 })
 export class OngsModule {}

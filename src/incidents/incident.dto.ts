@@ -3,6 +3,6 @@ export class IncidentDto {
     title: string;
     description: string;
     value: number;
-    ong_id: string;
+    ong_id: number;
     
 }

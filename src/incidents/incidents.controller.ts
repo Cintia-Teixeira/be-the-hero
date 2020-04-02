@@ -2,7 +2,6 @@ import { Controller, Get, Post, Delete, Body, Param } from "@nestjs/common";
 import { IncidentsService } from "./incidents.service";
 import { Incident } from "./incidents.entity";
 import { IncidentDto } from "./incident.dto";
-import { Ong } from "src/ongs/ongs.entity";
 
 @Controller('incidents')
 export class IncidentsController {

@@ -20,4 +20,14 @@ export class OngsService {
         this.ongsRepository.save(ongDto);
         return ongDto;
     }
+
+    findOng(name: string): Promise<Ong> {
+        var ong = this.ongsRepository.findOne(Ong[name]);
+        return ong;
+    }
+
+    remove(id: number){
+        this.ongsRepository.delete(id)
+        
+    }
 }

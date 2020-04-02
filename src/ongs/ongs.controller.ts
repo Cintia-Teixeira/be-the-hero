@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Delete, Param } from '@nestjs/common';
 import { OngDto } from './ong.dto';
 import { OngsService } from './ongs.service';
 import { Ong } from './ongs.entity';
@@ -16,5 +16,17 @@ export class OngsController {
     add(@Body() ongDto: OngDto): OngDto {
         this.ongService.add(ongDto);
         return ongDto;
+    }
+
+    @Get(':name')
+    findOne(@Param('name') name: string): Promise<Ong>{
+        var ong = this.ongService.findOng(name); 
+        return ong;
+    }
+    
+
+    @Delete(':id')
+    remove(@Param('id') id: number) {
+        this.ongService.remove(id);
     }
 }

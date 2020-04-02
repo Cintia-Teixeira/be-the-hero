@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, BeforeInsert } from "typeorm";
 import { Incident } from "src/incidents/incidents.entity";
+import * as bcrypt from 'bcrypt';
 
 @Entity()
 export class Ong {
@@ -9,7 +10,7 @@ export class Ong {
 
     @Column()
     name: string;
-    
+
     @Column()
     email: string;
 
@@ -22,7 +23,17 @@ export class Ong {
     @Column()
     uf: string;
 
+    @Column()
+    password: string;
+
+    @BeforeInsert()
+    async hashPassword() {
+        this.password = await bcrypt.hash(this.password, 10);
+    }
+
     @OneToMany(type => Incident, incident => incident.ong)
     incidents: Incident[];
+
+
 
 }
