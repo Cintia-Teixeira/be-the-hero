@@ -1,7 +1,7 @@
 export class OngDto {
 
     id: string;
-    name: string;
+    username: string;
     email: string;
     whatsapp: string;
     city: string;

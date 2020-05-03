@@ -1,0 +1,36 @@
+.container {
+    align-content: space-between;
+}
+
+.container section h1 {
+    margin-bottom: 15px;
+    margin-top: 50px;
+}
+
+.container section p {
+    font-size: 18px;
+    color: #737380;
+    line-height: 32px;
+    margin-bottom: 15px;
+}
+
+.container form {
+    width: 70%;
+}
+
+.container form input{
+    margin-bottom: 2px;
+}
+
+.container form section {
+    display: flex;
+}
+
+.container form section #city {
+    width: 80%;
+}
+
+.container form section #uf {
+    width: 18%;
+    margin-left: 2%;
+}
