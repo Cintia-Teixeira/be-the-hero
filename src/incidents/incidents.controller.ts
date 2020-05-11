@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Delete, Body, Param, UseGuards, Render } from "@nestjs/common";
+import { Controller, Get, Post, Delete, Body, Param, UseGuards, Render, Redirect } from "@nestjs/common";
 import { IncidentsService } from "./incidents.service";
 import { Incident } from "./incidents.entity";
 import { IncidentDto } from "./incident.dto";
@@ -8,10 +8,11 @@ import { JwtAuthGuard } from "src/authentication/jwt-auth.guard";
 export class IncidentsController {
     constructor (private incidentsService: IncidentsService) {}
 
-    @Get()
-    @Render('index')
-    root () {
-        return {message: "Faça seu logon"}
+    
+    @Get('new')
+    @Render('newIncident')
+    public newIncident(){
+        return;
     }
 
     @Get()
@@ -24,11 +25,12 @@ export class IncidentsController {
         : {incidents: []});
     }
 
-    @UseGuards(JwtAuthGuard)
+    //@UseGuards(JwtAuthGuard)
     @Post()
     @Render('incidentAdded')
     add(@Body() incidentDto: IncidentDto): IncidentDto {
-        return this.incidentsService.add(incidentDto);
+        this.incidentsService.add(incidentDto);
+        return incidentDto;
     }
 
     @UseGuards(JwtAuthGuard)

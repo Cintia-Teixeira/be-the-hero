@@ -4,28 +4,29 @@
 <head>
     <meta charset="utf-8">
     <title>Be the Hero</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/incidentAdded.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/incidentAdded.css">
 
 </head>
 
 <body>
     <div class="container">
         <header>
-            <img src="img/logo.svg" alt="Be the Hero">
-            <span>Bem vinda, NOME DA ONG</span>
-            <button type="button">Cadastrar novo caso</button>
-
-            <a href="/views/index.hbs">
-                <img src="img/power.svg" alt="Logout">
+            <img src="/img/logo.svg" alt="Be the Hero">
+            <span>Bem vinda, {{ong}}</span>
+           <form method="GET" action="/incidents/new">
+            <button type="submit">Cadastrar novo caso</button>
+            </form>
+            <a href="/ongs">
+                <img src="/img/power.svg" alt="Logout">
             </a>
         </header>
 
         <h1>Caso "{{title}}" adicionado com sucesso!</h1>
 
-        <a href="/views/profile.hbs" class="back">
-            <img src="img/arrow.svg" class="icon">
+        <a href="/" class="back"> <!--como direcionar o link para o perfil que exibe os casos específicos?-->
+            <img src="/img/arrow.svg" class="icon">
             Voltar para meu perfil
         </a>
     </div>

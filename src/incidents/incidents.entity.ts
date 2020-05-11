@@ -1,5 +1,5 @@
 import { Entity, PrimaryColumn, Column, ManyToOne } from "typeorm";
-import { Ong } from "src/ongs/ongs.entity";
+import { Ong } from "../ongs/ongs.entity";
 
 @Entity()
 export class Incident {

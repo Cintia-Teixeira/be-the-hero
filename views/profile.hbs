@@ -4,20 +4,22 @@
 <head>
     <meta charset="utf-8">
     <title>Be the Hero</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/profile.css">
 </head>
 
 <body>
     <div class="container">
         <header>
-            <img src="img/logo.svg" alt="Be the Hero">
-            <span>Bem vinda, NOME DA ONG</span>
-            <button type="button" onclick="newIncident.hbs">Cadastrar novo caso</button>
+            <img src="/img/logo.svg" alt="Be the Hero">
+            <span>Bem vinda, {{ong}}</span>
+            <form method="GET" action="/incidents/new">
+            <button type="submit">Cadastrar novo caso</button>
+            </form>
 
-            <a href="/views/index.hbs">
-                <img src="img/power.svg" alt="Logout">
+            <a href="/ongs">
+                <img src="/img/power.svg" alt="Logout">
             </a>
         </header>
 
@@ -32,11 +34,10 @@
 
                 <li><strong>VALOR:</strong>{{value}}</li>
 
-                <img src="img/bin.svg" class="icon" alt="Delete">
+                <img src="/img/bin.svg" class="icon" alt="Delete">
             </ul>
             {{/each}}
         </section>
     </div>
 </body>
-
 </html>

@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Delete, Param } from '@nestjs/common';
+import { Controller, Get, Post, Body, Delete, Param, Render } from '@nestjs/common';
 import { OngDto } from './ong.dto';
 import { OngsService } from './ongs.service';
 import { Ong } from './ongs.entity';
@@ -8,21 +8,34 @@ export class OngsController {
     constructor (private ongService: OngsService) {}
 
     @Get()
+    @Render('index')
+    root() {
+        return;
+    }
+
+    @Get('register')
+    @Render('register')
+    public register() {
+        return;
+    }
+
+    @Get('list')
     list(): Promise<Ong[]> {
         return this.ongService.list();
     }
 
     @Post()
-    add(@Body() ongDto: OngDto): OngDto {
+    @Render('profile')
+    add(@Body() ongDto: OngDto): OngDto | {} {
         this.ongService.add(ongDto);
-        return ongDto;
+        return {ong: ongDto.username};
     }
 
-    @Get(':name')
+    /*@Get(':name')
     findOne(@Param('name') name: string): Promise<Ong>{
         var ong = this.ongService.findOng(name); 
         return ong;
-    }
+    }*/
     
 
     @Delete(':id')

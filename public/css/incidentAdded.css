@@ -27,7 +27,7 @@
     align-self: center;
 }
 
-.container header button {
+.container header form {
     width: 55%;
     margin-left: 30%;
 }
